@@ -1,6 +1,8 @@
 defmodule M do
 
+  #############################################################
   ## INPUT-OUTPUT
+  #############################################################
   def inout do
       # |> pipes the raw IO.gets --> String.trim, removing /n
       # Result: var name scoped to do..end
@@ -12,7 +14,9 @@ defmodule M do
     IO.puts("Hello #{name}")
   end
 
+  #############################################################
   ## INTEGER DATA TYPES
+  #############################################################
   def int_stuff do
     i = 123
     IO.puts("Integer? #{is_integer(i)}")
@@ -30,14 +34,18 @@ defmodule M do
     IO.puts("Atom? #{is_atom(:"New York")}")
   end
 
+  #############################################################
   ## RANGES
+  #############################################################
   def range_stuff do
     one_to_ten = 1..10
     IO.puts(Kernel.inspect(one_to_ten))
       # use "inspect" to convert anything to a String
   end
 
+  #############################################################
   ## STRINGS
+  #############################################################
   def str_stuff do
     s = "My Sentence"
     IO.puts "Length: #{String.length(s)}" # length of str
@@ -59,7 +67,9 @@ defmodule M do
       # See `range_stuff` above re:inspect
   end
 
+  #############################################################
   ## MATH STUFF
+  #############################################################
   def math_stuff do
     IO.puts "5 + 4 = #{5 + 4}"
     IO.puts "5 - 4 = #{5 - 4}"
