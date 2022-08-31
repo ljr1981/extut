@@ -1,5 +1,17 @@
 defmodule M do
 
+  def main do
+    inout()
+    int_stuff()
+    float_stuff()
+    atom_stuff()
+    range_stuff()
+    str_stuff()
+    math_stuff()
+    compare_stuff()
+    condition_stuff()
+  end
+
   #############################################################
   ## INPUT-OUTPUT
   #############################################################
@@ -22,20 +34,24 @@ defmodule M do
     IO.puts("Integer? #{is_integer(i)}")
   end
 
+  #############################################################
   ## FLOAT DATA TYPES
+  #############################################################
   def float_stuff do
     f = 3.14159
     IO.puts("Float? #{is_float(f)}")
   end
 
-  ## ATOM DATA TYPE: name same as value
+  #############################################################
+  ## ATOM DATA TYPES
+  #############################################################
   def atom_stuff do
     IO.puts("Atom? #{is_atom(:Pittsburgh)}")
     IO.puts("Atom? #{is_atom(:"New York")}")
   end
 
   #############################################################
-  ## RANGES
+  ## RANGE STUFF
   #############################################################
   def range_stuff do
     one_to_ten = 1..10
@@ -44,7 +60,7 @@ defmodule M do
   end
 
   #############################################################
-  ## STRINGS
+  ## STRING STUFF
   #############################################################
   def str_stuff do
     s = "My Sentence"
@@ -77,6 +93,55 @@ defmodule M do
     IO.puts "5 / 4 = #{5 / 4}"
     IO.puts "5 div 4 = #{div(5, 4)}"  # div or dividend/divisor
     IO.puts "5 rem 4 = #{rem(5, 4)}"  # "modulus" (e.g.remainder)
+
+    ## See: https://hexdocs.pm/elixir/api-reference.html
+
+  end
+
+  #############################################################
+  ## COMPARE STUFF
+  #############################################################
+  def compare_stuff do
+    i = 4     # int
+    f = 4.0   # float
+    IO.puts("4 == 4.0 : #{i == f}")     # value compare only
+    IO.puts("4 === 4.0 : #{i === f}")   # value and data-type
+    IO.puts("4 != 4.0 : #{i != f}")     # ibid
+    IO.puts("4 !== 4.0 : #{i !== f}")   # ibid
+
+    IO.puts("5 > 4 : #{5 > 4}")
+    IO.puts("5 < 4 : #{5 < 4}")
+    IO.puts("5 <= 4 : #{5 <= 4}")
+    IO.puts("5 >= 4 : #{5 >= 4}")
+  end
+
+  #############################################################
+  ## CONDITION STUFF
+  #############################################################
+  def condition_stuff do
+    age = 16
+
+    IO.puts("Vote and drive? #{(age >= 16) and (age >= 18)}")
+    IO.puts("Vote or drive? #{(age >= 16) or (age >= 18)}")
+
+    if age = 18 do
+      IO.puts "Can Vote"
+    else
+      IO.puts "Cannot Vote"
+    end
+
+    unless age === 18 do
+      IO.puts "You are not 18"
+    else
+      IO.puts "You are 18"
+    end
+
+    cond do
+      age >= 18 -> IO.puts "You can vote"
+      age >= 16 -> IO.puts "You can drive"
+      age >= 14 -> IO.puts "You can wait"
+      true -> IO.puts "Default"
+    end
   end
 
 end
