@@ -305,8 +305,25 @@ defmodule M do
     IO.puts with_defaults()
   end
 
+  # See `anon_stuff`
   def with_defaults(x \\ 1, y \\ 1) do
     x+y
+  end
+
+  #############################################################
+  ## RECURSION STUFF
+  #############################################################
+  def recur_stuff do
+    IO.puts "Factorial of 3 = #{factorial(3)}"
+  end
+
+  def factorial(num) do
+    if num <= 1 do
+      1
+    else
+      result = num * factorial(num - 1)
+      result    # only reason to add this line is to stop compiler-warning
+    end
   end
 
 end
