@@ -142,6 +142,16 @@ defmodule M do
       age >= 14 -> IO.puts "You can wait"
       true -> IO.puts "Default"
     end
+
+    case 2 do
+      1 -> IO.puts "Entered 1"
+      2 -> IO.puts "Entered 2"
+      nil -> IO.puts "nil"
+      _ -> IO.puts "Default"
+    end
+
+    ## Turnary operator
+    IO.puts "Ternary : #{if age >= 18, do: "Can Vote", else: "Cannot Vote"}"
   end
 
 end
