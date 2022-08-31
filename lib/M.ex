@@ -10,6 +10,8 @@ defmodule M do
     math_stuff()
     compare_stuff()
     condition_stuff()
+    tuple_stuff()
+    list_stuff()
   end
 
   #############################################################
@@ -136,22 +138,145 @@ defmodule M do
       IO.puts "You are 18"
     end
 
+    # The conditions are commented out to prevent a compiler complaint:
+    # warning: this clause cannot match because a previous clause at
+    #   line 142 always matches
+    #   lib/M.ex:143
     cond do
-      age >= 18 -> IO.puts "You can vote"
-      age >= 16 -> IO.puts "You can drive"
-      age >= 14 -> IO.puts "You can wait"
+#      age >= 18 -> IO.puts "You can vote"
+#      age >= 16 -> IO.puts "You can drive"
+#      age >= 14 -> IO.puts "You can wait"
       true -> IO.puts "Default"
     end
 
     case 2 do
       1 -> IO.puts "Entered 1"
       2 -> IO.puts "Entered 2"
-      nil -> IO.puts "nil"
       _ -> IO.puts "Default"
     end
 
     ## Turnary operator
     IO.puts "Ternary : #{if age >= 18, do: "Can Vote", else: "Cannot Vote"}"
+  end
+
+  #############################################################
+  ## CONDITION STUFF
+  #############################################################
+  def tuple_stuff do
+    my_stats = {200, 6.0, :Larry}
+    IO.puts "Tuple : #{is_tuple(my_stats)}"
+
+    # Tut says cannot do the below, but apparently I can.
+    my_stats = Tuple.append(my_stats, 42)
+
+    # And it works again. I am thinking I can change variables.
+    IO.puts "Age : #{elem(my_stats, 3)}"
+
+    IO.puts "Size : #{tuple_size(my_stats)}"
+
+    my_stats = Tuple.delete_at(my_stats, 0)
+
+    _my_stats = Tuple.insert_at(my_stats, 0, 1963)
+
+    _many_zeros = Tuple.duplicate(0, 5) # five zeros
+
+    # This works because `{weight, size, name}` is in the last-data-buffer (?)
+    {weight, size, name} = {200, 6.0, "Larry"}
+    IO.puts "Weight : #{weight}"
+    IO.puts "Size : #{size}"
+    IO.puts "Name : #{name}"
+  end
+
+  #############################################################
+  ## LIST STUFF
+  #############################################################
+  def list_stuff do
+    # Make two lists to work with.
+    list1 = [1,2,3]
+    list2 = [4,5,6]
+
+    # Combine
+    list3 = list1 ++ list2    # add or append list2 to list1
+    IO.puts "List3 : #{IO.inspect(list3)}"
+    # iex> List3 : ^A^B^C^D^E^F     # The output of list3 raw (binary?)
+
+    # remove list1 from list3
+    list4 = list3 -- list1
+
+    # verify if item in list
+    IO.puts 6 in list4
+
+    [head | tail] = list3
+    IO.puts "Head : #{head}"    # Head is okay as-is, but ...
+    IO.write "Tail : #{tail}"   # then tail, but ...
+    IO.inspect tail             # to get tail to look like head in IO
+
+    IO.inspect [97,98]                          # = 'ab'
+    # vs
+    IO.inspect [97,98], charlists: :as_lists    # [97,98]
+
+    # Erlang note: What the last value of the FN is will print out in iex
+
+    Enum.each tail, fn item ->
+      IO.puts item
+    end
+
+    words = ["Random", "words", "in a", "list"]
+    Enum.each words, fn word ->
+      IO.puts word
+    end
+
+    # Recursion using function
+    IO.puts "One way ..."
+    display_list(words)
+    IO.puts "or another"
+    display_list2(words)
+  end
+
+  # One way of doing recursive calls
+  def display_list([word|words]) do     # in-arg-proc -> break head|tail (e.g. word|words)
+    IO.puts word                        # display the word (head)
+    display_list(words)                 # Recursive call ... until ...
+  end
+  def display_list([]), do: nil         # When arg is empty list (e.g. []), then ...
+
+  # Another way that does not include two functions
+  def display_list2(words) do
+    [word|words] = words
+    IO.puts word
+    unless Enum.empty?(words) do
+      display_list2(words)
+    end
+  end
+
+  #############################################################
+  ## MAP STUFF
+  #############################################################
+  def map_stuff do
+    capitols = %{"Alabama" => "Montgomery",
+      "Alaska" => "Juneau", "Arizona" => "Phoenix"}
+
+    # Fetch value for key from `capitols`
+    IO.puts "Capitol of Alaska is #{capitols["Alaska"]}"
+
+    capitols = %{alabama: "Montgomery",
+      alaska: "Juneau", arizona: "Phoenix"}
+
+    # Fetch another always (e.g. atom keys must be lower case)
+    IO.puts "Capitol of Arizona is #{capitols.arizona}"
+
+    capitols = Map.put_new(capitols, "Arkansas", "Little Rock")
+    IO.puts "New item Arkansas capitol is #{capitols["Arkansas"]}"
+    # IO.puts "Another way is #{capitols.arkansas}" ## This failed because ...
+    # iex> %{:alabama => "Montgomery", :alaska => "Juneau", :arizona => "Phoenix", "Arkansas" => "Little Rock"}
+    # The data is now mixed-and-matched, which violates what was expected.
+  end
+
+  #############################################################
+  ## PATTERN-MATCHING STUFF
+  #############################################################
+  def pattern_stuff do
+    
   end
 
 end
