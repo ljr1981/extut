@@ -29,10 +29,10 @@ Statements "consist of" either Assignment_expr or Expr.
 
 The ≜ (read as contains) is U+225C UTF-8 (Ctrl-Shift-u 225C on Linux keyboard)
 
-## EXPIRIMENTAL
+## EXPIRIMENTAL BNFE SPECIFICTION RULES
+Borrowed and reformatted from the ECMA Eiffel 367 Std.
 
 ### Syntax, validity and semantics
-Borrowed and reformatted from the ECMA Eiffel 367 Std.
 
 #### Definition: Syntax, BNF-E
 Syntax is the set of rules describing the structure of software texts. The notation used to define Elixir’s syntax is called BNF-E.
@@ -74,9 +74,9 @@ In contrast, the `specimens` of a non-terminal `construct` are defined in terms 
 #### Definition: Production
 A `production` is a formal description of the structure of all `specimens` of a non-terminal `construct`.
 It has the form
-```
-*`Construct`* **≜** right-side
-```
+
+*`Construct`* **≜** `right-side`
+
 where `right-side` describes how to obtain specimens of the Construct.
 
 #### Informative text
@@ -91,7 +91,7 @@ some of which may be optional.
 • `Repetition`, describing a construct whose specimens are made of a variable number of parts, all specimens of a given construct.
 
 #### Definition: Aggregate production
-An aggregate right side is of the form C1 C2 ... Cn (n > 0), where every one of the Ci is a `construct` and any contiguous subsequence may appear in square brackets as [Ci ... Cj ] for 1 ≤ i ≤ j ≤ n.
+An aggregate `right side` is of the form C1 C2 ... Cn (n > 0), where every one of the Ci is a `construct` and any contiguous subsequence may appear in square brackets as [Ci ... Cj ] for 1 ≤ i ≤ j ≤ n.
 Every `specimen` of the corresponding `construct` consists of a `specimen` of C1, followed by a `specimen` of C2, ..., followed by a `specimen` of Cn, with the provision that for any subsequence in brackets the corresponding `specimens` may be absent.
 
 #### Definition: Choice production
@@ -115,7 +115,7 @@ The language definition makes only moderate use of recursion thanks to the avail
 Every non-terminal construct is defined by exactly one production.
 
 #### Informative text
-Unlike in most BNF variants, every BNF-E production always uses exactly one of Aggregate, Choice and Repetition, never mixing them in the right sides. This convention yields a considerably clearer grammar, even if it has a few more productions (which in the end is good since they give a more accurate image of the language’s complexity).
+Unlike in most BNF variants, every BNF-E production always uses exactly one of Aggregate, Choice and Repetition, never mixing them in the `right side`s. This convention yields a considerably clearer grammar, even if it has a few more productions (which in the end is good since they give a more accurate image of the language’s complexity).
 
 #### Definition: Non-production syntax rule
 A non-production syntax rule, marked “(non-production)”, is a syntax property expressed outside of the BNF-E formalism.
@@ -123,7 +123,7 @@ A non-production syntax rule, marked “(non-production)”, is a syntax propert
 #### Informative text
 Unlike validity rules, non-production syntax rules belong to the syntax, that is to say the description of the structure of Elixir texts, but they capture properties that are not expressible, or not conveniently expressible, through a context-free grammar.
 
-For example the BNF-E Aggregate productions allow successive right-side components to be separated by an arbitrary break — any sequence of spaces, tabs and “new line” characters. We still use BNF-E to specify such constructs, but add a non-production syntax rule stating the supplementary constraints.
+For example the BNF-E Aggregate productions allow successive `right-side` components to be separated by an arbitrary break — any sequence of spaces, tabs and “new line” characters. We still use BNF-E to specify such constructs, but add a non-production syntax rule stating the supplementary constraints.
 
 #### Textual conventions
 The syntax (BNF-E) productions and other rules of the Standard apply the following conventions:
@@ -149,4 +149,4 @@ Because of the difference between cases 1 and 3, "{" denotes the opening brace a
 
 In case 2 the use of an upper-case first letter is a consequence of the “Construct Name convention”. Special symbols are normally enclosed in double quotes (case 5), except for the double quote itself which, to avoid any confusion, appears enclosed in single quotes (case 4). In either variant, the enclosing quotes — double or single respectively — are not part of the symbol. In some contexts, such as the table of all such symbols, special symbols (cases 4 and 5) appear in bold for emphasis.
 
-In application of cases 7 and 8, occurrences of Elixir entities or feature names in comments appear in italics, to avoid confusion with other comment text, as in a comment "#" Update the value of value. where the last word denotes a query of name value in the enclosing function.
+In application of cases 7 and 8, occurrences of Elixir entities or function names in comments appear in italics, to avoid confusion with other comment text, as in a comment "#" Update the value of value. where the last word denotes a query of name value in the enclosing function.
