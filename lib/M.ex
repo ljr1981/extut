@@ -389,7 +389,7 @@ defmodule M do
   #############################################################
   def ex_stuff do
     err = try do
-      5 / 0
+      5 / 1       # Change to 5 / 0 for demo (otherwise leave as 1 skipping warning)
     rescue
       ArithmeticError -> "Cannot divide by zero"
     end
@@ -398,9 +398,31 @@ defmodule M do
     :ok
   end
 
+  #############################################################
+  ## CONCURRENCY STUFF
+  #############################################################
+  def conc_stuff do
+    # Create (spawn) a new process that will run at an indeterminate time.
+    spawn(fn() -> loop(5, 1) end)
+    spawn(fn() -> loop(10, 5) end)
+
+    # Send a message (in this case—to self)
+    send(self(), {:french, "Bob"})
+
+    receive do
+      {:german, name} -> IO.puts "Guten tag #{name}"
+      {:french, name} -> IO.puts "Bon jour #{name}"
+      {:english, name} -> IO.puts "Hello #{name}"
+    after
+      500 -> "Time's up!"
+    end
+
+    :ok   # NOTE how this atom prints but the spawns keep running after this finishes.
+  end
+
   ## For calling M.main in iex command prompt.
   def main do
-    ex_stuff()
+    conc_stuff()
   end
 
 end
