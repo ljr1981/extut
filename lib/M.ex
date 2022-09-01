@@ -15,6 +15,14 @@ defmodule M do
     :ok
   end
 
+  ## Def ≜ "do" <Statements> "end"
+  ##
+  ## Statements ≜ [Assignment_expr | Expr]
+  ##
+  ## Assignment_expr ≜ [Identifier] "=" [Expr]
+  ##
+  ## Identifier ≜ [{a..z|A..Z|0..9|_|?}]
+
   #############################################################
   ## INTEGER DATA TYPES
   #############################################################
