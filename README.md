@@ -13,18 +13,16 @@ I cannot find a BNF-E language specification for Elixir. So, I will scratch out 
 
 ### The "def <fn_name> do ... end" Construct
 
-![](https://img.shields.io/static/v1?label=&message=Def_fn&color=green) ≜ **do** ![](https://img.shields.io/static/v1?label=&message=Statements&color=green) **end**
+Def_fn ≜ **do** Statements **end**
 
-![](https://img.shields.io/static/v1?label=&message=Statements&color=green) ≜ [![](https://img.shields.io/static/v1?label=&message=Assignment_expr&color=green) | ![](https://img.shields.io/static/v1?label=&message=Expr&color=green)]
+Statements ≜ [Assignment_expr | Expr]
 
-![](https://img.shields.io/static/v1?label=&message=Assignment_expr&color=green) ≜ [![](https://img.shields.io/static/v1?label=&message=Identifier&color=green) **=** ![](https://img.shields.io/static/v1?label=&message=Expr&color=green)]
+Assignment_expr ≜ [Identifier **=** Expr]
 
-![](https://img.shields.io/static/v1?label=&message=Identifier&color=green) ≜ [{a..z|A..Z|0..9|_|?}]
+Identifier ≜ [{a..z|A..Z|0..9|_|?}]
 
 ## MISC NOTES
 
 The ≜ (read as contains) is U+225C UTF-8 (Ctrl-Shift-u 225C on Linux keyboard)
 
 ## EXPIRIMENTAL
-
-![](https://img.shields.io/static/v1?label=&message=Def_fn&color=green)
