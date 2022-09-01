@@ -12,6 +12,7 @@ defmodule M do
       # Now, output it
 
     IO.puts("Hello #{name}")
+    :ok
   end
 
   #############################################################
@@ -20,6 +21,7 @@ defmodule M do
   def int_stuff do
     i = 123
     IO.puts("Integer? #{is_integer(i)}")
+    :ok
   end
 
   #############################################################
@@ -28,6 +30,7 @@ defmodule M do
   def float_stuff do
     f = 3.14159
     IO.puts("Float? #{is_float(f)}")
+    :ok
   end
 
   #############################################################
@@ -36,6 +39,7 @@ defmodule M do
   def atom_stuff do
     IO.puts("Atom? #{is_atom(:Pittsburgh)}")
     IO.puts("Atom? #{is_atom(:"New York")}")
+    :ok
   end
 
   #############################################################
@@ -45,6 +49,7 @@ defmodule M do
     one_to_ten = 1..10
     IO.puts(Kernel.inspect(one_to_ten))
       # use "inspect" to convert anything to a String
+      :ok
   end
 
   #############################################################
@@ -69,6 +74,7 @@ defmodule M do
     4 * 10 |> IO.puts   # Converted to string by pipe
     IO.puts(Kernel.inspect(1..10))    # no piping in!
       # See `range_stuff` above re:inspect
+    :ok
   end
 
   #############################################################
@@ -83,7 +89,7 @@ defmodule M do
     IO.puts "5 rem 4 = #{rem(5, 4)}"  # "modulus" (e.g.remainder)
 
     ## See: https://hexdocs.pm/elixir/api-reference.html
-
+    :ok
   end
 
   #############################################################
@@ -101,6 +107,7 @@ defmodule M do
     IO.puts("5 < 4 : #{5 < 4}")
     IO.puts("5 <= 4 : #{5 <= 4}")
     IO.puts("5 >= 4 : #{5 >= 4}")
+    :ok
   end
 
   #############################################################
@@ -129,9 +136,9 @@ defmodule M do
     #   line 142 always matches
     #   lib/M.ex:143
     cond do
-#      age >= 18 -> IO.puts "You can vote"
-#      age >= 16 -> IO.puts "You can drive"
-#      age >= 14 -> IO.puts "You can wait"
+      #      age >= 18 -> IO.puts "You can vote"
+      #      age >= 16 -> IO.puts "You can drive"
+      #      age >= 14 -> IO.puts "You can wait"
       true -> IO.puts "Default"
     end
 
@@ -143,6 +150,7 @@ defmodule M do
 
     ## Turnary operator
     IO.puts "Ternary : #{if age >= 18, do: "Can Vote", else: "Cannot Vote"}"
+    :ok
   end
 
   #############################################################
@@ -171,6 +179,7 @@ defmodule M do
     IO.puts "Weight : #{weight}"
     IO.puts "Size : #{size}"
     IO.puts "Name : #{name}"
+    :ok
   end
 
   #############################################################
@@ -217,6 +226,7 @@ defmodule M do
     display_list(words)
     IO.puts "or another"
     display_list2(words)
+    :ok
   end
 
   # One way of doing recursive calls
@@ -256,6 +266,7 @@ defmodule M do
     # IO.puts "Another way is #{capitols.arkansas}" ## This failed because ...
     # iex> %{:alabama => "Montgomery", :alaska => "Juneau", :arizona => "Phoenix", "Arkansas" => "Little Rock"}
     # The data is now mixed-and-matched, which violates what was expected.
+    :ok
   end
 
   #############################################################
@@ -267,6 +278,7 @@ defmodule M do
 
     [_,[_,a]] = [20,[30,40]]
     IO.puts "Get num : #{a}"
+    :ok
   end
 
   #############################################################
@@ -301,6 +313,7 @@ defmodule M do
   #############################################################
   def recur_stuff do
     IO.puts "Factorial of 3 = #{factorial(3)}"
+    :ok
   end
 
   def factorial(num) do
@@ -319,6 +332,7 @@ defmodule M do
     IO.puts "Sum : #{sum([1,2,3,4])}"
 
     loop(5,1)
+    :ok
   end
 
   def sum([]), do: 0
