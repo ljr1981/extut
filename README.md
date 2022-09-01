@@ -13,7 +13,9 @@ I cannot find a BNF-E language specification for Elixir. So, I will scratch out 
 
 ### The "def <fn_name> do ... end" Construct
 
-**```diff + Def_fn```** ≜ **do** Statements **end**
+```diff
+ + Def_fn
+ ```** ≜ **do** Statements **end**
 
 Statements ≜ [Assignment_expr | Expr]
 
