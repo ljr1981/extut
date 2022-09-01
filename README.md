@@ -13,10 +13,7 @@ I cannot find a BNF-E language specification for Elixir. So, I will scratch out 
 
 ### The "def <fn_name> do ... end" Construct
 
-```diff
- + Def_fn 
- ```
- ≜ **do** Statements **end**
+Def_fn ≜ **do** Statements **end**
 
 Statements ≜ [Assignment_expr | Expr]
 
@@ -29,11 +26,3 @@ Identifier ≜ [{a..z|A..Z|0..9|_|?}]
 The ≜ (read as contains) is U+225C UTF-8 (Ctrl-Shift-u 225C on Linux keyboard)
 
 ## EXPIRIMENTAL
-
-```diff
-- text in red
-+ text in green
-! text in orange
-# text in gray
-@@ text in purple (and bold)@@
-```
