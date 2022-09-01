@@ -24,3 +24,13 @@ Identifier ≜ [{a..z|A..Z|0..9|_|?}]
 ## MISC NOTES
 
 The ≜ (read as contains) is U+225C UTF-8 (Ctrl-Shift-u 225C on Linux keyboard)
+
+## EXPIRIMENTAL
+
+```diff
+- text in red
++ text in green
+! text in orange
+# text in gray
+@@ text in purple (and bold)@@
+```
