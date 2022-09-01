@@ -1,19 +1,5 @@
 defmodule M do
 
-  def main do
-    inout()
-    int_stuff()
-    float_stuff()
-    atom_stuff()
-    range_stuff()
-    str_stuff()
-    math_stuff()
-    compare_stuff()
-    condition_stuff()
-    tuple_stuff()
-    list_stuff()
-  end
-
   #############################################################
   ## INPUT-OUTPUT
   #############################################################
@@ -322,8 +308,45 @@ defmodule M do
       1
     else
       result = num * factorial(num - 1)
-      result    # only reason to add this line is to stop compiler-warning
+      result    # only reason to add this line is to stop compiler-warn
     end
+  end
+
+  #############################################################
+  ## LOOPING STUFF
+  #############################################################
+  def loopy_stuff do
+    IO.puts "Sum : #{sum([1,2,3,4])}"
+
+    loop(5,1)
+  end
+
+  def sum([]), do: 0
+  def sum([head|tail]), do: head + sum(tail)
+
+  # Alt to making two fn's (like above for `sum`)
+  def loop(max, min) do
+    case max do
+      0 -> nil
+      _ -> if max < min do
+        loop(0, min)
+      else
+        IO.puts "Num : #{max}"
+        loop(max - 1, min)
+      end
+    end
+  end
+
+  #############################################################
+  ## LOOPING STUFF
+  #############################################################
+  def enum_stuff do
+    
+  end
+
+  ## For calling M.main in iex command prompt.
+  def main do
+    loopy_stuff()
   end
 
 end
