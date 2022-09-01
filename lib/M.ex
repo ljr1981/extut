@@ -437,6 +437,7 @@ defmodule M do
   ## For calling M.main in iex command prompt.
   def main do
     conc_stuff()
+    :ok
   end
 
 end
