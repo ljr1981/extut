@@ -384,10 +384,23 @@ defmodule M do
     :ok
   end
 
+  #############################################################
+  ## EXCEPTION-HANDLING STUFF
+  #############################################################
+  def ex_stuff do
+    err = try do
+      5 / 0
+    rescue
+      ArithmeticError -> "Cannot divide by zero"
+    end
+    IO.puts err
+
+    :ok
+  end
 
   ## For calling M.main in iex command prompt.
   def main do
-    compre_stuff()
+    ex_stuff()
   end
 
 end
