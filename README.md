@@ -123,7 +123,7 @@ A non-production syntax rule, marked “(non-production)”, is a syntax propert
 #### Informative text
 Unlike validity rules, non-production syntax rules belong to the syntax, that is to say the description of the structure of Elixir texts, but they capture properties that are not expressible, or not conveniently expressible, through a context-free grammar.
 
-For example the BNF-E Aggregate productions allow successive right-side components to be separated by an arbitrary break — any sequence of spaces, tabs and “new line” characters. In a few cases, for example in an Alias declaration such as alias "+", it is convenient to use BNF-E — with a right-side listing the keyword alias, a double quote, an Operator and again a double quote — but we need to prohibit breaks between either double quote and the operator. We still use BNF-E to specify such constructs, but add a non-production syntax rule stating the supplementary constraints.
+For example the BNF-E Aggregate productions allow successive right-side components to be separated by an arbitrary break — any sequence of spaces, tabs and “new line” characters. We still use BNF-E to specify such constructs, but add a non-production syntax rule stating the supplementary constraints.
 
 #### Textual conventions
 The syntax (BNF-E) productions and other rules of the Standard apply the following conventions:
