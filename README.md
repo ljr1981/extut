@@ -58,7 +58,7 @@ For example, `a function` means `a specimen of construct function`: a text built
 Every `construct` has a name starting with an upper-case letter and continuing with lower-case letters, possibly with underscores (to separate parts of the name if it uses several English words).
 
 #### Informative text
-Typesetting conventions complement the Construct Name convention: `construct` names, such as function, always appear in Roman and in Green — distinguishing them from the blue of Elixir text.
+Typesetting conventions complement the Construct Name convention: `construct` names, such as function, always appear in Roman and in Green — distinguishing them from the black of Elixir text.
 
 ### Definition: Terminal, non-terminal, token
 Specimens of a terminal `construct` have no further syntactical structure. Examples include:
@@ -128,24 +128,24 @@ For example the BNF-E Aggregate productions allow successive right-side componen
 #### Textual conventions
 The syntax (BNF-E) productions and other rules of the Standard apply the following conventions:
 
-1 - Symbols of BNF-E itself, such as the vertical bars | signaling a choice production, appear in black (non-bold, non-italic).
+1 - Symbols of BNF-E itself, such as the vertical bars | signaling a choice `production`, appear in black (non-bold, non-italic).
 
-2 - Any construct name appears in dark green (non-bold, non-italic), with a first letter in upper case, as function.
+2 - Any `construct` name appears in dark green (non-bold, non-italic), with a first letter in upper case, as `function`.
 
-3 - Any component (Elixir text element) appears in blue.
+3 - Any component (Elixir text element) appears in black.
 
-4 - The double quote, one of Elixir’s special symbols, appears in productions as '"': a double quote character (blue like other Elixir text) enclosed in two single quote characters (black since they belong to BNF-E, not Elixir).
+4 - The double quote, one of Elixir’s special symbols, appears in productions as '"': a double quote character (black like other Elixir text) enclosed in two single quote characters (black since they belong to BNF-E, not Elixir).
 
-5 - All other special symbols appear in double quotes, for example a comma as ",", an assignment symbol as ":=", a single quote as "'" (double quotes black, single quote blue).
+5 - All other special symbols appear in double quotes, for example a comma as ",", an assignment symbol as "=", a single quote as "'" (double quotes black, single quote black).
 
-6 - Keywords and other reserved words, such as function and Result, appear in bold (blue like other Elixir text). They do not require quotes since the conventions avoid ambiguity with construct names: function is the name of a construct, function a keyword.
+6 - Keywords and other reserved words, such as **do** and **if**, appear in bold (black like other Elixir text). They do not require quotes since the conventions avoid ambiguity with construct names: function is the name of a construct, **do** a keyword.
 
-7 - Examples of Elixir comment text appear in non-bold, non-italic (and in blue), as "#" A comment.
+7 - Examples of Elixir comment text appear in non-bold, non-italic (and in black), as **#** A comment.
 
-8 - Other elements of Elixir text, such as entities and feature names (including in comments) appear in non-bold italic (blue). The color-related parts of these conventions do not affect the language definition, which remains unambiguous under black-and-white printing (thanks to the letter-case and font parts of the conventions). Color printing is recommended for readability.
+8 - Other elements of Elixir text, such as entities and function names (including in comments) appear in non-bold italic (black). The color-related parts of these conventions do not affect the language definition, which remains unambiguous under black-and-white printing (thanks to the letter-case and font parts of the conventions). Color printing is recommended for readability.
 
 #### Informative text
-Because of the difference between cases 1 and 3, { denotes the opening brace as it might appear in an Elixir function text, whereas { is a symbol of the syntax description, used in repetition productions.
+Because of the difference between cases 1 and 3, "{" denotes the opening brace as it might appear in an Elixir function text, whereas { is a symbol of the syntax description, used in `repetition` `productions`.
 
 In case 2 the use of an upper-case first letter is a consequence of the “Construct Name convention”. Special symbols are normally enclosed in double quotes (case 5), except for the double quote itself which, to avoid any confusion, appears enclosed in single quotes (case 4). In either variant, the enclosing quotes — double or single respectively — are not part of the symbol. In some contexts, such as the table of all such symbols, special symbols (cases 4 and 5) appear in bold for emphasis.
 
