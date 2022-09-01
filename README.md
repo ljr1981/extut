@@ -13,13 +13,13 @@ I cannot find a BNF-E language specification for Elixir. So, I will scratch out 
 
 ### The "def <fn_name> do ... end" Construct
 
-Def_fn ≜ **do** Statements **end**
+![](https://img.shields.io/static/v1?label=&message=Def_fn&color=green) ≜ **do** ![](https://img.shields.io/static/v1?label=&message=Statements&color=green) **end**
 
-Statements ≜ [Assignment_expr | Expr]
+![](https://img.shields.io/static/v1?label=&message=Statements&color=green) ≜ [![](https://img.shields.io/static/v1?label=&message=Assignment_expr&color=green) | ![](https://img.shields.io/static/v1?label=&message=Expr&color=green)]
 
-Assignment_expr ≜ [Identifier] **=** [Expr]
+![](https://img.shields.io/static/v1?label=&message=Assignment_expr&color=green) ≜ [![](https://img.shields.io/static/v1?label=&message=Identifier&color=green) **=** ![](https://img.shields.io/static/v1?label=&message=Expr&color=green)]
 
-Identifier ≜ [{a..z|A..Z|0..9|_|?}]
+![](https://img.shields.io/static/v1?label=&message=Identifier&color=green) ≜ [{a..z|A..Z|0..9|_|?}]
 
 ## MISC NOTES
 
