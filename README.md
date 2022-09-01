@@ -20,3 +20,7 @@ Statements ≜ [Assignment_expr | Expr]
 Assignment_expr ≜ [Identifier] **=** [Expr]
 
 Identifier ≜ [{a..z|A..Z|0..9|_|?}]
+
+## MISC NOTES
+
+The ≜ is U+225C UTF-8 (Ctrl-Shift-u 225C on Linux keyboard)
