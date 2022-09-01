@@ -338,15 +338,56 @@ defmodule M do
   end
 
   #############################################################
-  ## LOOPING STUFF
+  ## ENUM STUFF
   #############################################################
   def enum_stuff do
-    
+    # All items are even in a list ...
+    IO.puts "Even List : #{Enum.all?([1,2,3],
+    fn(n) -> rem(n, 2) == 0 end)}"
+
+    # If any items are even in a list ...
+    IO.puts "Any are Even : #{Enum.any?([1,2,3],
+    fn(n) -> rem(n, 2) == 0 end)}"
+
+    # Use Enum.each to print out the values in a list.
+    Enum.each([1,2,3], fn(n) -> IO.puts n end)
+
+    # Use Enum.map to create a second list with doubled-values.
+    dbl_list = Enum.map([1,2,3], fn(n) -> n * 2 end)
+    IO.inspect dbl_list
+
+    # Use Enum.reduce to sum up the values in a list.
+    sum_vals = Enum.reduce([1,2,3], fn(n, sum) -> n + sum end)
+    IO.inspect sum_vals
+
+    # Give a unique list of values from a list with dupes.
+    # Note how I did not put the Enum list into a local variable.
+    IO.inspect Enum.uniq([1,1,2,2,3,3])
+
+    :ok       ## Added here so that final value doesn't just repeat.
+              ## Provides me an indication that the function ended OK.
   end
+
+  #############################################################
+  ## LIST-COMPREHENSION STUFF (FOR loops?)
+  #############################################################
+  def compre_stuff do
+    # Another way to perform actions on a list.
+    # <target> = for <n> <- <list_expr>, do: <result_expr>
+    dbl_list = for n <- [1,2,3], do: n * 2
+    IO.inspect dbl_list
+
+    # for <n> <- <list_expr>, <bool_cond>, do: <result_expr>
+    even_list = for n <- [1,2,3,4], rem(n, 2) == 0, do: n
+    IO.inspect even_list
+
+    :ok
+  end
+
 
   ## For calling M.main in iex command prompt.
   def main do
-    loopy_stuff()
+    compre_stuff()
   end
 
 end
