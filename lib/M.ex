@@ -99,7 +99,7 @@ defmodule M do
     i = 4     # int
     f = 4.0   # float
     IO.puts("4 == 4.0 : #{i == f}")     # value compare only
-    IO.puts("4 === 4.0 : #{i === f}")   # value and data-type
+    # IO.puts("4 === 4.0 : #{i === f}")   # value and data-type
     IO.puts("4 != 4.0 : #{i != f}")     # ibid
     IO.puts("4 !== 4.0 : #{i !== f}")   # ibid
 
@@ -116,20 +116,20 @@ defmodule M do
   def condition_stuff do
     age = 16
 
-    IO.puts("Vote and drive? #{(age >= 16) and (age >= 18)}")
-    IO.puts("Vote or drive? #{(age >= 16) or (age >= 18)}")
+    IO.puts("Vote and drive? #{age >= 18}")
+    IO.puts("Vote or drive? #{age in 16..150}")
 
-    if age = 18 do
-      IO.puts "Can Vote"
-    else
-      IO.puts "Cannot Vote"
-    end
+    #if age = 18 do
+    #  IO.puts "Can Vote"
+    #else
+    #  IO.puts "Cannot Vote"
+    #end
 
-    unless age === 18 do
-      IO.puts "You are not 18"
-    else
-      IO.puts "You are 18"
-    end
+    #unless age === 18 do
+    #  IO.puts "You are not 18"
+    #else
+    #  IO.puts "You are 18"
+    #end
 
     # The conditions are commented out to prevent a compiler complaint:
     # warning: this clause cannot match because a previous clause at
@@ -142,7 +142,7 @@ defmodule M do
       true -> IO.puts "Default"
     end
 
-    case 2 do
+    case String.to_integer(IO.gets("Num:")) do
       1 -> IO.puts "Entered 1"
       2 -> IO.puts "Entered 2"
       _ -> IO.puts "Default"
@@ -436,7 +436,7 @@ defmodule M do
 
   ## For calling M.main in iex command prompt.
   def main do
-    conc_stuff()
+    ex_stuff()
     :ok
   end
 
