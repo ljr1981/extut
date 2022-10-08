@@ -99,6 +99,12 @@ I also suggest using several browsers (e.g. Edge, Chrome, Firefox, Safari, and s
 
 Elixir has plently of testing facilities and Phoenix Live makes end-to-end testing with a browser much simppler (e.g. you don't need the browser as much as you would without it). There is some capacity for Elixir to build its own tests of your code based on some structured comments that you create. So, not only do your comments get collected into what turn into "help files", but the comments are read by the testing facility of Elixir and turned into functional code tests.
 
+# Deployment
+
+Ultimately—you want to get your web app or web service API out in the cloud and working. One of the easiest ways I have found is through www.fly.io, which specializes in deployment and hosting of Elixir and Phoenix web projects. They do have a "free tier" that has yet to charge me for my little "toy" apps and experiments.
+
+The hardest part of the deal is getting Fly installed (which is not hard). Once installed, getting an Elixir/Phoenix project deployed is literally a single CLI command and then following the bouncing ball of CLI prompts as they pop up. Once complete (e.g. with flyctl launch), there is a single CLI command to launch your newly deployed app in your default browser. Fly.io has a user dashboard for tracking your deployed projects. It's all pretty simple and what one might expect.
+
 # Conclusion
 
 There are probably items I am leaving out and links that I need to add, but this is all I can think of at the moment. Besides, I am working off my phone in a very small town in SE KS at the moment with the most abysmal throughput and latency to the internet I have experienced since the 1980s!
